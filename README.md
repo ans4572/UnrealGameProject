@@ -38,3 +38,14 @@
 3. 필드용 스폰 매니저 액터(`ABattleLaneManager`) 추가
 4. 상호작용 버튼(유닛 뽑기/강화/도박) UMG 이벤트를 Subsystem으로 분리
 
+
+## GitHub 업로드
+현재 저장소에 remote가 없으면 아래 순서로 업로드할 수 있습니다.
+
+```bash
+git remote add origin <YOUR_GITHUB_REPO_URL>
+git push -u origin work
+```
+
+- `work` 브랜치를 기본으로 사용 중입니다.
+- GitHub 인증은 Personal Access Token(PAT) 또는 SSH 키를 사용하세요.

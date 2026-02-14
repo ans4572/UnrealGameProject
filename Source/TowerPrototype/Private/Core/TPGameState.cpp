@@ -43,8 +43,18 @@ void ATPGameState::SetRemainingMonsters(int32 InRemainingMonsters)
 
 int32 ATPGameState::GetRoundsUntilBoss() const
 {
-    const int32 NextBossRound = ((CurrentRound / BossRoundInterval) + 1) * BossRoundInterval;
-    return NextBossRound - CurrentRound;
+    if (BossRoundInterval <= 0)
+    {
+        return 0;
+    }
+
+    const int32 Remainder = CurrentRound % BossRoundInterval;
+    if (Remainder == 0)
+    {
+        return 0;
+    }
+
+    return BossRoundInterval - Remainder;
 }
 
 FString ATPGameState::GetFormattedRemainingTime() const
