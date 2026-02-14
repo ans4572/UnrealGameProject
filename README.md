@@ -49,3 +49,18 @@ git push -u origin work
 
 - `work` 브랜치를 기본으로 사용 중입니다.
 - GitHub 인증은 Personal Access Token(PAT) 또는 SSH 키를 사용하세요.
+
+
+## UE 5.5 모듈 빌드 오류 해결
+`The following modules are missing or built with a different engine version: TowerPrototype` 팝업은 보통 엔진 버전/중간 산출물/툴체인 불일치로 발생합니다.
+
+1. Visual Studio Installer에서 아래 항목 설치 확인
+   - Desktop development with C++
+   - MSVC v143 (14.38+)
+   - Windows 10/11 SDK
+2. 프로젝트 폴더에서 `Binaries`, `Intermediate`, `.vs`, `Saved` 폴더를 삭제
+3. `TowerPrototype.uproject` 우클릭 → `Visual Studio 프로젝트 파일 생성`
+4. 생성된 `TowerPrototype.sln`을 열고 빌드 구성 `Development Editor | Win64`로 `TowerPrototype` 빌드
+5. 빌드 성공 후 UE 5.5에서 `.uproject` 다시 열기
+
+참고: 본 저장소는 UE 5.5 기준으로 `EngineAssociation` 및 Target IncludeOrderVersion을 맞춰두었습니다.
